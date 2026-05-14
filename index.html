@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Official artist page with biography, career milestones, and upcoming shows.">
+	<title>Bamba | Artist Website</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "Person",
+	  "name": "Bamba",
+	  "jobTitle": "Recording Artist",
+	  "description": "Independent artist blending soulful vocals with electronic rhythms.",
+	  "url": "https://example.com",
+	  "image": "./.vscode/rigo-baby.jpeg",
+	  "knowsAbout": ["Live Performance", "Songwriting", "Music Production"],
+	  "workExample": [
+		{
+		  "@type": "CreativeWork",
+		  "name": "Neon Echoes",
+		  "genre": "Alternative Pop"
+		},
+		{
+		  "@type": "CreativeWork",
+		  "name": "Midnight Circuit",
+		  "genre": "Electronic Soul"
+		}
+	  ]
+	}
+	</script>
+</head>
+<body id="top">
+	<header class="site-header" role="banner" aria-label="Site header">
+		<div class="brand-block" aria-label="Artist identity">
+			<p class="eyebrow">Official Site</p>
+			<h1>Bamba</h1>
+		</div>
+		<nav class="main-nav" aria-label="Main navigation">
+			<ul>
+				<li><a href="#about">About Me</a></li>
+				<li><a href="#career">Career</a></li>
+				<li><a href="#shows">Upcoming Shows</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero panel" aria-label="Hero section">
+			<article class="panel-content">
+				<p class="eyebrow">Artist Spotlight</p>
+				<h2>Sound with pulse, stories with soul.</h2>
+				<p>
+					Bamba creates high-energy performances rooted in intimate storytelling.
+					Every set blends live vocals, analog textures, and crowd-connected moments.
+				</p>
+				<a class="cta" href="#shows" aria-label="Jump to upcoming shows">See Upcoming Shows</a>
+			</article>
+			<figure class="hero-image-wrap">
+				<img src="./.vscode/rigo-baby.jpeg" alt="Portrait of artist Bamba in studio lighting">
+			</figure>
+		</section>
+
+		<section id="about" class="panel" aria-labelledby="about-heading">
+			<article class="panel-content">
+				<h2 id="about-heading">About Me</h2>
+				<p>
+					Born between city noise and old vinyl records, Bamba developed a style that
+					sits between modern electronic grooves and timeless vocal melodies.
+				</p>
+				<p>
+					Off stage, the focus is craft: writing sessions, collaboration, and pushing
+					each track to feel cinematic while staying personal.
+				</p>
+			</article>
+		</section>
+
+		<section id="career" class="panel" aria-labelledby="career-heading">
+			<article class="panel-content">
+				<h2 id="career-heading">Career</h2>
+				<p>
+					From small local venues to festival side stages, the journey has been built on
+					consistency, experimentation, and community support.
+				</p>
+				<ul class="milestones" aria-label="Career milestones">
+					<li><strong>2022:</strong> Debut EP released independently.</li>
+					<li><strong>2024:</strong> Regional tour across six cities.</li>
+					<li><strong>2025:</strong> Collaboration with international producers.</li>
+				</ul>
+			</article>
+		</section>
+
+		<section id="shows" class="panel" aria-labelledby="shows-heading">
+			<article class="panel-content">
+				<h2 id="shows-heading">Upcoming Shows</h2>
+				<ul class="show-list" aria-label="Upcoming live events">
+					<li>
+						<h3>June 20, 2026 - Miami</h3>
+						<p>Sunline Theater, 8:00 PM</p>
+					</li>
+					<li>
+						<h3>July 12, 2026 - Austin</h3>
+						<p>North Loop Stage, 9:30 PM</p>
+					</li>
+					<li>
+						<h3>August 2, 2026 - New York</h3>
+						<p>East River Hall, 7:45 PM</p>
+					</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+
+	<footer class="site-footer" role="contentinfo" aria-label="Site footer">
+		<p>2026 Bamba. All rights reserved.</p>
+		<a href="#top" aria-label="Back to top">Back to top</a>
+	</footer>
+</body>
+</html>

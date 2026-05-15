@@ -21,6 +21,7 @@ html {
 body {
     margin: 0;
     font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    font-size: clamp(1rem, 0.35vw + 0.95rem, 1.2rem);
     color: var(--ink-light);
     background:
         radial-gradient(circle at 15% 20%, #20365a 0%, transparent 35%),
@@ -58,7 +59,7 @@ body {
     letter-spacing: 0.18em;
     font-weight: 700;
     color: var(--accent-alt);
-    font-size: 0.74rem;
+    font-size: clamp(0.8rem, 0.35vw + 0.72rem, 1rem);
 }
 
 .main-nav ul {
@@ -76,7 +77,8 @@ body {
     padding: 0.45rem 0.8rem;
     border-radius: 999px;
     border: 1px solid transparent;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: clamp(0.98rem, 0.35vw + 0.9rem, 1.18rem);
 }
 
 .main-nav a:hover,
@@ -92,9 +94,9 @@ main {
 }
 
 .panel {
-    min-height: calc(100vh - var(--header-height));
+    min-height: 100vh;
     scroll-margin-top: var(--header-height);
-    padding: 2rem 5vw;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,7 +104,7 @@ main {
 
 .panel-content {
     max-width: 780px;
-    width: 100%;
+    width: 80%;
     padding: clamp(1.25rem, 3vw, 2.5rem);
     border-radius: 18px;
     background: var(--card);
@@ -116,29 +118,59 @@ main {
 
 .hero {
     display: flex;
+    min-height: 100vh;
+    padding: 2rem 5vw;
     gap: 1.5rem;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+}
+
+.panel:not(.hero) .panel-content {
+    max-width: none;
+    min-height: 100vh;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: clamp(1.5rem, 3vw, 3rem) 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(0.9rem, 2vh, 2rem);
+}
+
+.panel:not(.hero) .panel-content > :not(.decorative-image) {
+    max-width: 72ch;
 }
 
 .hero .panel-content {
     flex: 1 1 360px;
+    min-height: clamp(420px, 72vh, 760px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero h2,
 .panel h2 {
     margin: 0.35rem 0 0.7rem;
-    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-size: clamp(2.4rem, 5.1vw, 4.5rem);
     line-height: 1.1;
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 0.04em;
+}
+
+.panel p,
+.panel li {
+    font-size: clamp(1.12rem, 0.7vw + 0.98rem, 1.42rem);
+    line-height: 1.68;
 }
 
 .hero-image-wrap {
     position: relative;
     margin: 0;
     flex: 1 1 280px;
+    min-height: clamp(420px, 72vh, 760px);
     max-width: 440px;
     border-radius: 24px;
     overflow: hidden;
@@ -247,6 +279,7 @@ main {
     color: #111;
     background: linear-gradient(135deg, var(--accent), #ff8860);
     font-weight: 700;
+    font-size: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
     border-radius: 999px;
     padding: 0.72rem 1.2rem;
 }
@@ -266,7 +299,8 @@ main {
 
 .show-list h3 {
     margin: 0.2rem 0;
-    font-size: 1.1rem;
+    font-size: clamp(1.24rem, 0.8vw + 1rem, 1.7rem);
+    line-height: 1.25;
 }
 
 .show-list p {
@@ -274,7 +308,8 @@ main {
 }
 
 .decorative-image {
-    margin: 1.1rem 0 0;
+    margin: auto 0 0;
+    width: min(100%, 1200px);
     border-radius: 14px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.18);
@@ -283,7 +318,7 @@ main {
 
 .decorative-image img {
     width: 100%;
-    height: clamp(160px, 24vw, 280px);
+    height: clamp(220px, 36vh, 420px);
     display: block;
     object-fit: cover;
     filter: saturate(1.08) contrast(1.05);

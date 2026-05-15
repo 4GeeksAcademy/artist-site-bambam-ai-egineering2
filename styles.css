@@ -109,6 +109,11 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+/* Fallback: subtle load animation for browsers without view-timeline support. */
+.panel:not(.hero) .panel-content {
+    animation: section-load 700ms ease-out both;
+}
+
 .hero {
     display: flex;
     gap: 1.5rem;
@@ -268,6 +273,94 @@ main {
     margin: 0;
 }
 
+.decorative-image {
+    margin: 1.1rem 0 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.decorative-image img {
+    width: 100%;
+    height: clamp(160px, 24vw, 280px);
+    display: block;
+    object-fit: cover;
+    filter: saturate(1.08) contrast(1.05);
+}
+
+@supports (animation-timeline: view()) {
+    .panel:not(.hero) .panel-content {
+        opacity: 0;
+        transform: translateY(34px) scale(0.97);
+        animation-name: section-reveal;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 12% cover 42%;
+    }
+
+    .panel:not(.hero) .decorative-image {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+        animation-name: image-pop;
+        animation-duration: 1ms;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 44%;
+    }
+
+    .panel#career .panel-content {
+        animation-range: entry 16% cover 45%;
+    }
+
+    .panel#shows .panel-content {
+        animation-range: entry 18% cover 48%;
+    }
+}
+
+@keyframes section-load {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes section-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(34px) scale(0.97);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes image-pop {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98) rotate(-0.5deg);
+        clip-path: inset(12% 0 0 0 round 14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(0deg);
+        clip-path: inset(0 0 0 0 round 14px);
+    }
+}
+
 .site-footer {
     padding: 1.2rem 5vw 1.6rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -308,6 +401,8 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .panel:not(.hero) .panel-content,
+    .panel:not(.hero) .decorative-image,
     .hero-image-wrap,
     .hero-image-wrap::before,
     .hero-image-wrap::after,
